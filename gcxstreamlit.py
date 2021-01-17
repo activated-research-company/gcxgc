@@ -1,3 +1,12 @@
+# This program was written by Andrew Jones
+# for Activated Research Company (ARC).
+# It is intended as a program for the quick visualization of comprehensive
+# 2D GC (GCxGC) data.
+# The program is covered under the MIT license and is completely free to use
+# and open source
+
+# GCxGC with Streamlit v1.0
+
 import streamlit as st
 import numpy as np
 import pandas as pd
