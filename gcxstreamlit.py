@@ -23,9 +23,9 @@ option = st.sidebar.selectbox('Examples:', ('Select','Gasoline','Biodiesel'))
 
 if uploaded_file is not None or option != 'Select':
     if option == 'Gasoline':
-        uploaded_file = open("Gasoline.csv")
+        uploaded_file = open("https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV")
     elif option == 'Biodiesel':
-        uploaded_file = open("Biodiesel.csv")
+        uploaded_file = open("https://github.com/activated-research-company/gcxgc/raw/main/Biodiesel.csv")
     elif option == 'Spearmint':
         uploaded_file = open("Spearmint.csv")
 
@@ -96,11 +96,10 @@ if uploaded_file is not None or option != 'Select':
     st.plotly_chart(fig3)
 
 else:
+    st.write('')
+    st.title("Step 1: upload your file (left) or select an example")
     st.write("Data files must have 3 rows of header data and then time and signal in the first two columns. Here is an example taken from an Agilent 7890 GC, by exporting the .ch file to a csv with MSD ChemStation:")
-    #st.write(f'<a href="data:file/csv;" download="https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV">Download csv file</a>',unsafe_allow_html=True)
-    #st.write('[Download csv file] (https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV)')
-    #<a href="https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV" download></a>
-    filelink = '<a href="https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV" download="Gasoline.csv">Download csv file</a>'
+    filelink = '<a href="https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV" download="Gasoline.csv">Download example csv file here</a>'
     st.write(filelink,unsafe_allow_html=True)
-    st.image("https://www.activatedresearch.com/wp-content/uploads/2021/01/Example.png", use_column_width=True)
+    #st.image("https://www.activatedresearch.com/wp-content/uploads/2021/01/Example.png", use_column_width=True)
     
