@@ -79,6 +79,7 @@ if uploaded_file is not None or option != 'Select':
     y_2D = np.arange(start=0,stop=modtime,step=modtime/len(data_2D[:,0]))
     fig = go.Figure(data=go.Heatmap(x=x_1D,y=y_2D,z=data_2D_power, zsmooth=smoothing, colorscale=colorscale_select))
     fig.update_layout(title='2D heatmap:',xaxis_title='1D time (min)',yaxis_title='2D time (s)',hovermode="x unified")
+    fig.add_layout_image(dict(source="https://raw.githubusercontent.com/activated-research-company/gcxgc/main/ARC4W-C-Horiz-LO.jpg",xref="paper",yref="paper",x=1,y=1.05,sizex=0.2,sizey=0.2,xanchor="right",yanchor="bottom"))
     st.plotly_chart(fig)
 
     slicetime = st.number_input('Enter time (min) for extracted chromatogram',min_value=0.0,max_value=runtime,value=0.0)
