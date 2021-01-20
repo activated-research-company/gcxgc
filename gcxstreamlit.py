@@ -23,15 +23,9 @@ option = st.sidebar.selectbox('Examples:', ('Select','Gasoline','Biodiesel'))
 
 if uploaded_file is not None or option != 'Select':
     if option == 'Gasoline':
-        url = 'https://drive.google.com/file/d/1_g2PcLUrXVmdMIZWoP-JahbYLHmmf-Hj/view?usp=sharing'
-        path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-        uploaded_file = open(path)
+        uploaded_file = 'https://drive.google.com/uc?export=download&id=1_g2PcLUrXVmdMIZWoP-JahbYLHmmf-Hj'
     elif option == 'Biodiesel':
-        url = 'https://drive.google.com/file/d/1WXJVY3hGcy21VZIfaaMP-rV8dgPSQP1y/view?usp=sharing'
-        path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-        uploaded_file = open(path)
-    elif option == 'Spearmint':
-        uploaded_file = open("Spearmint.csv")
+        uploaded_file = 'https://drive.google.com/uc?export=download&id=1WXJVY3hGcy21VZIfaaMP-rV8dgPSQP1y'
 
     df = pd.read_csv(uploaded_file,low_memory=False)
     dn = df.drop([0,1])
@@ -56,8 +50,6 @@ if uploaded_file is not None or option != 'Select':
         modtime = 3.0
     elif option == 'Biodiesel':
         modtime = 3.3
-    elif option == 'Spearmint':
-        modtime = 2.1
 
     ## Pad matrix so it can be resized
     xp = int(round(modtime*rate))
@@ -104,9 +96,7 @@ else:
     st.title("Step 1: upload your file (left) or select an example")
     st.write("Data files must have 3 rows of header data and then time and signal in the first two columns. Here is an example taken from an Agilent 7890 GC, by exporting the .ch file to a csv with MSD ChemStation:")
     #filelink = '<a href="https://github.com/activated-research-company/gcxgc/raw/main/Gasoline.CSV" download="Gasoline.csv">Download example csv file here</a>'
-    url = 'https://drive.google.com/file/d/1_g2PcLUrXVmdMIZWoP-JahbYLHmmf-Hj/view?usp=sharing'
-    path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-    filelink = '<a href=path download="Gasoline.csv">Download example csv file here</a>'
-    st.write(filelink,unsafe_allow_html=True)
+    #st.write(<a href=path>Download example</a>)
+    st.write('Download example csv file with modulation time of 3.0 s [here] (https://drive.google.com/uc?export=download&id=1_g2PcLUrXVmdMIZWoP-JahbYLHmmf-Hj)',unsafe_allow_html=True)
     #st.image("https://www.activatedresearch.com/wp-content/uploads/2021/01/Example.png", use_column_width=True)
     
